@@ -1,0 +1,34 @@
+HTML5
+
+CSS3
+
+BOOTSTRAP - 5
+
+TAILWIND - 4
+
+JS - DOM - ES6+ ----> Fundamentals , Variables , Data Types , Primitive & Non-Primitive , Operators , Selection Statements Hoisting , Conditions , Control - Functions , Array , Object , Array Of Objects , (ES6+) , Higher Order Array Method (Sum , map , forEach ....) ,
+
+
+
+Fetch API's -Modern Tools
+
+React - Vite - Axios - React-Router-DOM --->
+ Projects - Component -  Rendering - react-router-dom(Components - hooks)
+ Update - Hooks - useState - useEffect
+
+
+Node
+
+Express
+
+MongoGB
+
+Cors
+
+JSON
+
+GitHub
+
+Git
+
+AI Tools
