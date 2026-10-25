@@ -1,0 +1,215 @@
+<script>
+    let details = {name: "Gowtham", age: 20, city: "Chennai", role: "Developer"}
+
+
+    let {name, age, city, role} = details
+    console.log(`Hello, my name is ${name}
+I'm ${age} years old
+I live in ${city}
+I'm a ${role}
+    `);
+
+
+    let math = (a, b) => {
+        console.log(a + b);
+        console.log(a - b);
+        console.log(a * b);
+        console.log(a / b);
+
+    }
+    math(10, 20)
+
+
+    const greetUser = (name, role = "Developer") => {
+        console.log(`Hello ${name}, you are a ${role}`);
+
+    }
+    greetUser("Gowtham")
+
+
+    const student = {
+        name1: "Gowtham",
+        age1: 20,
+        course: "JavaScript",
+        city1: "Chennai"
+    };
+
+    const {name1, age1, course, city1} = student
+
+    console.log(`Name: ${name1}
+Age: ${age1}
+Course: ${course}
+City: ${city1} 
+    `);
+
+
+    const product = {
+        name: "Laptop",
+        price: 60000,
+        quantity: 2
+    };
+
+    let total = product.price * product.quantity
+    console.log(`Product: ${product.name}
+Price: ${product.price}
+Quantity: ${product.quantity} 
+Toatl: ${total}`);
+
+const products1 = ["Laptop", "Mouse"];
+const products2 = ["Keyboard", "Monitor"];
+
+
+const products = [...products1, ...products2]
+
+console.log(products.join(" , "));
+
+
+const user = {
+    name2: "Bala",
+    age2: 25,
+    role2: "Developer"
+};
+
+updatedUser = {...user,age2:20 , role2:"Senior Developer"};
+
+
+console.log(user);
+console.log(updatedUser);
+
+console.log(`Original:
+Name: ${user.name2}
+Age: ${user.age2}
+Role: ${user.role2}`);
+
+console.log(`Updated:
+Name: ${user.name2}
+Age: ${updatedUser.age2}
+Role: ${updatedUser.role2}`);
+
+
+const calculateTotal = (...prices1)=>{
+    let total = 0 
+
+    for(let price1 of prices1){
+            total +=price1
+    }
+
+    console.log(total);
+    
+}
+
+calculateTotal(100,200,300);
+calculateTotal(330,2324,54);
+calculateTotal(532,77,45);
+
+
+
+const createUser= (name,age=20,city= "Chennai")=>{
+
+    console.log(`NAME: ${name} 
+    AGE : ${age}
+    CITY: ${city}`);
+    
+
+}
+
+createUser("Gowtham" ,undefined ,"Banglore");
+createUser("Krish" , 21 , "Coimbatore")
+
+
+
+const user1 = {name:"Gowtham" , age:20 };
+
+const getCity = ()=>{   
+    return user1.address?.city ?? "CHENNAI"
+
+    
+}
+
+console.log(getCity());
+
+
+
+user1.address={
+    city:"Maduari"
+};
+console.log(user1.address.city);
+
+console.log(getCity());
+
+
+
+const users = [
+    { name: "Bala", role: "Developer" },
+    { name: "Arun", role: "Designer" },
+    { name: "Kumar", role: "Tester" }
+];
+
+for(let use of users){
+        const {name , role }= use;    
+
+        console.log(`NAME: ${use.name} , ROLE: ${use.role}`);
+        
+}
+
+
+const food = "Beef Burger"
+const price = 399;
+const quantity = 2;
+
+const items =[food , price , quantity]
+
+console.log(items);
+
+
+
+
+
+const info = {
+    name: "Gowtham",
+    role: "Admin",
+    isLoggedIn: true
+};
+
+const checkLogin = ()=>{
+
+    const {name , role , isLoggedIn} = info
+    if(isLoggedIn){
+        console.log(`Welcome: ${name}
+Role: ${role}`);
+        
+    } else {
+        console.log("Please Login");
+        
+    }
+}
+
+checkLogin()
+
+
+
+
+const pro = {
+    name: "Laptop",
+    price: 60000,
+    category: "Electronics"
+};
+
+const getProductInfo = ()=>{
+    const {name, price , category} = pro  
+    
+    console.log(`NAME : ${name}
+PRICE : ${price}
+CATEGORY: ${category}`);
+    
+}
+
+getProductInfo()
+
+updatedPro = {...pro , price:65000 , category:"Electronics"}
+
+console.log(updatedPro);
+
+
+
+</script>

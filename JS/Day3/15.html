@@ -1,0 +1,59 @@
+<script>
+    const user = {
+        name: "GOWTHAM", age: 20, role: "Frontend Developer",
+        address: {
+            city: "Chennai"
+        }
+    };
+
+    const getUserName = () => {
+        const {name, age, role, city} = user
+
+        console.log(`NAME : ${name} `);
+
+    }
+    getUserName()
+
+
+    const getUserLocation = () => {
+        return user.address?.city ?? "Unknown City"
+
+        console.log(getUserLocation());
+
+    }
+
+    console.log("CITY: ", getUserLocation());
+
+    const updateUser = () => {
+        const newUser = {...user, age: 21, role: "Senior Developer"}
+        const {name, age, role} = newUser
+        console.log(`Name : ${name}
+Age : ${age}
+Role : ${role}`);
+
+    }
+
+    updateUser()
+
+
+    const users = [
+        user,
+        {
+            name: "Arun",
+            age: 30,
+            role: "Backend Developer"
+        },
+        {
+            name: "Kumar",
+            age: 28,
+            role: "Tester"
+        }
+    ];
+
+    for(let person of users){
+        const {name , role } = person
+        console.log(`${person.name} : ${person.role}`);
+        
+    }
+
+</script>
