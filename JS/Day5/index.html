@@ -1,0 +1,139 @@
+<script>
+
+    let numbers = [10, 20 , 30 , 4 ,50];
+
+    const biggest = numbers.some((e)=>e>35);
+    console.log(biggest);
+    
+
+
+    let students = [
+
+    {name:"Gowtham" , mark:88},
+    {name:"Author" , mark:92},
+    {name:"Victor" , mark:44},
+    {name:"Krish" , mark:100},
+    {name:"Jesse" , mark:76}
+
+    ];
+
+    const marks = students.every((e)=>e.mark>50)
+    console.log(marks);
+
+
+
+
+    let role = ["Admin" , "Director" , "Developer" , "Analyst"];
+    console.log(role.includes("Admin"));
+    
+
+
+    let salary = [ 
+
+    {id:1, salary:20000},
+    {id:2, salary:10000},
+    {id:3, salary:40000},
+    {id:4, salary:70000},
+    {id:5, salary:90000}
+
+    ];
+
+
+
+    const total  = salary.reduce((sal , sumSalary)=>{
+            return sal + sumSalary.salary;
+    },0)
+   
+    console.log(total);
+    
+    
+    let cart = [
+
+    {pro:"5star" , price:10 , quantity:3},
+    {pro:"Lays" , price:50 , quantity:10},
+    {pro:"Eggs" , price:7 , quantity:15},
+    {pro:"Milk" , price:32 , quantity:3}
+
+    ];
+
+
+    const amount = cart.reduce((amt , totAmt)=>{
+        return amt + totAmt.price * totAmt.quantity
+    },0)
+
+    console.log(amount);
+
+
+
+
+    let emplyoees = [
+
+    {id:101 , earnings:34000},
+    {id:102 , earnings:10000},
+    {id:103 , earnings:24000},
+    {id:105 , earnings:9000},
+    {id:104 , earnings:51000}
+
+    ];
+
+
+    const find = emplyoees.filter((e,i)=>e.earnings>30000)
+    console.log(find);
+    
+
+    const find1 = emplyoees.find((e,i)=>e.id===101)
+    console.log(find1);
+
+
+
+    
+    const product = [
+
+    {prices:536},
+    {prices:105},
+    {prices:930},
+    {prices:238}
+
+    ];
+
+    product.sort((e , d)=>e.prices - d.prices)
+    console.log(product);
+
+
+
+    const items = [
+
+    { id: 101, name: "Laptop", price: 45000 },
+    { id: 102, name: "Mouse", price: 500 },
+    { id: 103, name: "Keyboard", price: 1500 },
+    { id: 104, name: "Monitor", price: 12000 }
+
+    ];
+
+    const index = items.findIndex((a)=>a.id===104)
+    console.log(index);
+
+
+
+    let emp = [
+
+    {name:"Gowtham",id:101 , earnings:134000},
+    {name:"Superman",id:102 , earnings:10000},
+    {name:"Spiderman",id:103 , earnings:24000},
+    {name:"Batman",id:105 , earnings:9000},
+    {name:"Hulk",id:104 , earnings:51000}
+
+    ];
+
+
+    const extract = emp.map((a)=>a.name)
+    console.log(extract);
+    
+    
+    
+    
+    
+
+
+
+</script>
