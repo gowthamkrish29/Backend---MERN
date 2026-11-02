@@ -1,0 +1,204 @@
+<script>
+
+    // function sum  (a,b,callback){
+    //     console.log("Start");
+
+    //     callback(a,b);
+
+    //     console.log("End");
+
+    // }
+
+    // function add(a,b){
+    //     console.log("Addition: " ,a+b);
+
+    // }
+
+    // sum(20,40,add)
+
+
+
+
+
+    // let students =
+    //     {name: "Gowtham", age: 20, city: "Chennai"}
+
+    // const displayStudents = (a, b) => {
+    //     b(a)
+    // }
+
+    // displayStudents(students, (result) => {
+    //     console.log("NAME : ", result.name);
+    //     console.log("AGE : ", result.age);
+    //     console.log("CITY : ", result.city);
+    // })
+
+
+
+
+    // const checkResult = (mark, value) => {
+    //     if (mark >= 40) {
+    //         console.log("Pass");
+
+    //     } else {
+    //         console.log("Fail");
+
+    //     }
+    // }
+
+    // checkResult(39, (result) => {
+    //     console.log("Result ", result);
+
+    // })
+
+
+    // console.log("Hola , Beinvenido ");
+
+    // setTimeout(() => {
+    //     console.log("Queire un cafe con leache y azugar");
+
+    // }, 1000)
+
+    // setTimeout(() => {
+    //     console.log("Queires un te o un cafe ?");
+
+    // }, 500)
+
+
+    // let count =1;
+
+    // setInterval(()=>{
+    //     console.log("Count: " , count);
+    //     count++
+    // },2000)
+
+    // let count = 1;
+
+    // const timer = setInterval(() => {
+    //     console.log("Count: ", count);
+
+    //     if (count === 5) {
+    //         clearInterval(timer)
+    //         console.log("Timer Stopped");
+
+    //     }
+
+    //     count++;
+    // }, 1000)
+
+
+
+    // let second = 10;
+
+    // console.log("OTP Sent");
+
+    // const decrease = setInterval(()=>{
+
+    //     console.log("Seconds Left: ",second);
+
+    //     second--
+        
+
+    //     if(second === 0){
+    //         clearInterval(decrease);
+    //         console.log("OTP Experied");
+            
+    //     }
+
+
+    // },1000)
+
+
+
+    // const getData = new Promise((resolve , reject)=>{
+    //     setTimeout(()=>{
+    //         resolve("Students data Loaded");
+    //     } , 2000)
+    // })
+
+    // console.log("Fetching Data...");
+    
+    // getData.then((result)=>{
+    //     console.log(result);
+        
+    // })
+    
+
+    // const checkPayment = new Promise ((resolve , reject )=>{
+
+    //     const payment = true;
+
+
+    //     if(payment){
+    //         resolve({
+    //             amount: 500,
+    //             status: "Success"
+    //         });
+    //     } else {
+    //         reject(new error("Payment Failed"))
+    //     }
+
+    // });
+
+    // checkPayment
+    //     .then((data)=>{
+
+    //         console.log("Amount: ",data.amount);
+    //         console.log("Payment: ",data.status);
+        
+        
+    //     })
+    //     .catch((error)=>{
+    //         console.log("Error: ",error.message);
+        
+    //     })
+    //     .finally(()=>{
+    //         console.log("Payment Process Completed");
+
+    //     })
+
+
+
+        const loginUser = (email , password) =>{
+
+            return new Promise((resolve , reject) =>{
+
+                setTimeout(()=>{
+
+                    if(email === "gowtham@gmail.com" && 
+                        password === 29
+                     ) {
+                        resolve({
+                            id:101,
+                            name:"Gowtham",
+                            role:"Developer"
+                        })
+                     } else{
+                        reject(new error ("Invalid Credentials"))
+                     }
+
+                },1000)
+
+            })
+
+        }
+
+        const login = async ()=>{
+
+            try{
+
+                const user = await loginUser("gowtham@gmail.com" , "29");
+
+                console.log("Login Success");
+                console.log("User: ",user.email);
+                console.log("Role: ",user.role);
+    
+            } catch (error){
+                console.log("Login Failed");
+                
+            } finally{
+                console.log("Login Process Completed");
+            }
+
+        }
+</script>

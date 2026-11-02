@@ -1,0 +1,56 @@
+<script>
+    //CALLBACK FUNCTION
+
+    function calculate(a, b, callback) {
+        console.log("Calaculation started");
+
+        callback(a, b);
+
+        console.log("Callation Ended");
+
+    }
+
+    function add(a, b) {
+        console.log("Addition: ", a + b);
+
+    }
+
+    calculate(33, 44, add)
+
+
+    const students = ["Arun", "Kumar", "Priya"];
+
+    students.forEach((student, index) => {
+        console.log(index + 1, student);
+    });
+
+
+
+    let seconds = 30;
+
+    console.log("OTP Sent");
+    console.log("OTP will expire in 30 seconds");
+
+
+    const timer = setInterval(() => {
+
+        console.log("Time Left:", seconds);
+
+        seconds--;
+
+        if (seconds === 0) {
+            clearInterval(timer);
+            console.log("OTP Expired");
+        }
+
+    }, 1000);
+
+
+
+    
+
+
+
+
+
+</script>

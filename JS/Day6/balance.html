@@ -1,0 +1,67 @@
+<script>
+
+
+    function myBalance() {
+
+        let balance = 2000;
+
+        console.log("Current Balance: ", balance);
+
+
+        function deposit(amount) {
+
+            console.log("Deposited Money: ", amount);
+
+            balance = balance + amount;
+
+            console.log("New Balance : ", balance);
+
+        }
+
+        function withdraw(amount) {
+
+            if (amount > balance) {
+
+                console.log("Insufficient Balanace");
+
+            } else {
+
+                 balance = balance - amount;
+                console.log("Withdraw Money : ", amount);
+                console.log("Reamianing Balance :", balance);
+
+
+            }
+
+
+        }
+
+        function checkBalance() {
+
+            console.log("Available Balance : ", balance);
+
+
+        }
+
+        return {
+            deposit,
+            withdraw,
+            checkBalance
+
+        }
+
+    }
+
+    const money = myBalance();
+
+    money.deposit(300);
+
+    money.withdraw(440);
+
+    money.checkBalance();
+
+    money.withdraw(5000);
+
+
+
+</script>

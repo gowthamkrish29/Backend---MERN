@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FETCH API</title>
+</head>
+
+<body>
+    <div id="showData" style="color: red; background-color: black; padding: 30px;" >
+        
+    </div>
+
+    <script>
+
+
+        const getData = async () => {
+
+            const showing = document.getElementById("showData");
+
+            try {
+
+                const response = await fetch("https://dummyjson.com/products");
+
+                if (!response.ok) {
+                    throw new Error("Failed to fetch products");
+                }
+
+                const change = await response.json();
+
+                let products = change.products;
+
+                let myData = "";
+
+                products.forEach((element) => {
+
+                    myData += `<h2>TITLES: ${element.title}</h2>`;
+
+                });
+
+                showing.innerHTML = myData;
+
+            }
+
+            catch (e) {
+                console.log(e);
+            }
+
+        };
+
+        getData();
+    </script>
+</body>
+
+</html>

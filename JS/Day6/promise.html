@@ -1,0 +1,27 @@
+<script>
+
+
+    let myPromise = new Promise((resolve,reject)=>{
+
+        let number= 21;
+        
+
+        if (number % 2 === 0){
+          resolve("Even")
+        } else {
+            reject("Odd")
+        }
+    });
+
+    myPromise
+        .then((result)=>{
+            console.log(result);
+            
+        }).catch((error)=>{
+            console.log(error);
+            
+        })
+
+
+
+</script>

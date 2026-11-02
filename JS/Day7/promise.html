@@ -1,0 +1,152 @@
+<div id="showData">
+
+</div>
+
+
+<script>
+
+    //     const students = new Promise((resolve, reject) => {
+    //         const mark = 15;
+
+    //         if (mark >= 35) {
+    //             resolve("Student Passed")
+    //         } else {
+    //             reject("Student Failed")
+    //         }
+    //     });
+
+
+    //     students
+    //         .then((data) => {
+    //             console.log(data);
+    //         })
+    //         .catch((error) => {console.log(error);
+    //         })
+
+
+
+    //     const loginUser = new Promise ((resolve , reject)=>{
+
+    //         const userName = "Gowtham";
+    //         const password = "12345"
+
+
+    //       setInterval(()=>{
+    //           if(userName==="Gowtham" && password==="12345"){
+    //             resolve("Login Successfull")
+    //         } else {
+    //             console.log("Invalid Credentails");
+
+    //         }
+
+    //     },1000)
+
+    // });
+
+    //     loginUser
+    //         .then((data)=>{console.log(data);
+    //         })
+    //         .catch((error)=>{console.log(error);
+    //         })
+
+
+
+
+    //     const product = new Promise((resolve , reject)=>{
+
+    //          const price = 5000;
+    //          const discount = price * 10 / 100;
+    //          const finalPrice = price - discount;
+
+
+    //         setTimeout(()=>{
+
+    //             console.log("Price : " , price);
+    //             console.log("Discount : ",discount);
+
+    //             if(discount > 0){
+    //                 resolve("Total Amount : " + finalPrice)
+    //             }else{
+    //                 reject("No discoutn offered")
+    //             }
+
+    //         },2000)
+
+
+    //     })
+
+
+    //     product
+    //         .then((data)=>{console.log(data);
+    //         })
+    //         .catch((error)=>{console.log(error);
+    //         });
+
+
+    const showing = document.getAnimations("showData")
+
+    fetch("https://dummyjson.com/products").then((res) => {
+
+        return res.json()
+
+    }).then((data) => {
+
+        let products = data.products
+
+        console.log(products);
+
+        let myData = ""
+
+        products.forEach(element => {
+
+            myData += `<h2>TITLE${element.title}</h2>`
+
+        });
+
+        showing.innerHTML = myData
+
+    }).catch((e) => {
+        console.log(e);
+
+    }).finally(() => {
+        console.log("Clear");
+    })
+
+
+
+    const getData = async ()=>{
+
+
+        const showing = document.getElementById("showData")
+
+
+        try{
+
+            getdata = await fetch("https://dummyjson.com/products");
+
+            if(!response.ok){
+                throw new error("Failed to fetch products")
+            }
+
+            const change = await getData.json()
+
+            let products = change.products
+
+             let myData = ""
+
+        products.forEach(element => {
+
+            myData += `<h2>TITLE${element.title}</h2>`
+
+        });
+
+        showing.innerHTML = myData
+
+        }catch(e){
+            console.log(e);
+            
+        }
+    }
+
+    getData
+</script>

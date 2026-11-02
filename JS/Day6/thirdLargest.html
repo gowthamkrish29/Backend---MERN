@@ -1,0 +1,33 @@
+<script>
+
+    const thirdLargest = (...numbers) => {
+        let largest = 0;
+        let second = 0;
+        let third = 0;
+
+        for (let i = 0; i < numbers.length; i++) {
+
+            if (numbers[i] > largest) {
+                third = second;
+                second = largest;
+                largest = numbers[i]
+            }
+
+            else if (numbers[i] > second && numbers < largest) {
+                third = second;
+                second = numbers[i]
+            }
+
+            else if (numbers[i] > third && numbers[i] < second) {
+                third = numbers[i]
+            }
+        }
+
+        return third;
+
+    }
+
+    console.log(thirdLargest(10, 20, 30, 40, 50));
+
+
+</script>

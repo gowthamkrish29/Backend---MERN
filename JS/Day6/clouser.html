@@ -1,0 +1,73 @@
+<script>
+
+
+    function outer() {
+
+        let name = "Gowtham"
+
+        function inner() {
+            console.log(name);
+
+        }
+        inner()
+    }
+
+    outer()
+
+
+
+    function first(){
+        
+        let count = 0;
+
+        function second (){
+            count++;
+            console.log(count);
+            
+        }
+
+        return second;
+
+
+
+    }
+
+    const third = first();
+
+    third();
+    third();
+    third();
+    third();
+    third();
+    third();
+    third();
+
+
+
+    function checkBalance (){
+
+        let balance = 2000;
+
+        console.log("Current Balance : " ,balance);
+        
+
+        function deposit(amount){
+            
+            console.log("Deposited Money:", amount);
+
+            balance = balance + amount;
+            console.log("New Balance : " , balance);
+            
+
+        }
+        return {
+            deposit
+        }
+    
+    }
+
+    const money = checkBalance();
+
+    money.deposit(5000);
+    
+</script>
