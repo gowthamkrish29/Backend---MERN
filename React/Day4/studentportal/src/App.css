@@ -1,0 +1,65 @@
+.main-container {
+    display: grid;
+    grid-template-columns: 35% 65%;
+    gap: 20px;
+    padding: 30px;
+    align-items: start;
+    box-sizing: border-box;
+}
+
+.profile-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.profile-image img {
+    width: 180px;
+    height: 180px;
+    object-fit: contain;
+    display: block;
+}
+
+.profile-details {
+    margin-top: 15px;
+    align-items:center ;
+    justify-content: center;
+    font-weight: bolder;
+    font-size: 20px;
+    line-height: 1.4;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px;
+    width: 100%;
+    margin-top: 150px;
+}
+
+.grid-box {
+    background-color:  rgb(251, 191, 36);
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+    min-height: 150px;
+    margin: 20px;
+    border-radius: 12px;
+    text-align: center;
+    font-weight: bolder;
+    border-color: 3px black;
+    box-sizing: border-box;
+}
+
+.grid-box h2 {
+    color: #1956f5;
+    font-size: 23px;
+    font-weight: bolder;
+}
+
+.grid-box p {
+    font-size: 15px;
+    font-weight: bold;
+}
+
