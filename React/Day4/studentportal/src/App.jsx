@@ -10,9 +10,6 @@ const App = () => {
   return (
     <>
     
-    <NavBar />
-
-    
 
     <AppRoutes />
    

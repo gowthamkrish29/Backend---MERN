@@ -15,12 +15,12 @@ const Dashboard = () => {
             <img src={profileImage} alt="student-profile" className="w-50 my-30 mx-20" />
           </div>
 
-          <div class="profile-details" className="text-center font-bold text-4xl text-blue-500">
-            <h2>NAME : KRISH</h2>
-            <h2>AGE  : 20</h2>
-            <h2>COURSE : MERN - STACK</h2>
-            <h2>EID : 0710</h2>
-            <h2>DURATION :  5 MONTHS</h2>
+          <div class="profile-details" className="text-center font-semibold text-4xl text-blue-500">
+            <h2><b>NAME</b> : VICTOR</h2>
+            <h2><b>Age</b>  : 25</h2>
+            <h2><b>COURSE</b> : MERN - STACK</h2>
+            <h2><b>EID</b> : 0710</h2>
+            <h2><b>DURATION</b> :  5 MONTHS</h2>
           </div>
 
         </div>

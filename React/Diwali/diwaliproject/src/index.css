@@ -1,0 +1,143 @@
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: #080808;
+  color: white;
+  font-family: Arial, sans-serif;
+}
+
+.navbar {
+  width: 100%;
+  height: 80px;
+  padding: 0 8%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #080808;
+  border-bottom: 1px solid #252525;
+}
+
+.logo {
+  color: white;
+  font-size: 25px;
+  font-weight: 900;
+  text-decoration: none;
+  letter-spacing: 3px;
+}
+
+.logo span,
+h1 span {
+  color: #ff6500;
+}
+
+.nav-links {
+  display: flex;
+  gap: 35px;
+}
+
+.nav-links a {
+  color: #ccc;
+  text-decoration: none;
+  font-size: 12px;
+  font-weight: bold;
+  letter-spacing: 2px;
+}
+
+.nav-links a:hover {
+  color: #ff6500;
+}
+
+.page {
+  min-height: calc(100vh - 80px);
+  padding: 70px 8%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 50px;
+}
+
+.content {
+  flex: 1;
+}
+
+.tag {
+  color: #ff6500;
+  font-size: 12px;
+  font-weight: bold;
+  letter-spacing: 4px;
+  margin-bottom: 30px;
+}
+
+h1 {
+  font-size: clamp(48px, 7vw, 95px);
+  line-height: 0.95;
+  font-weight: 900;
+  letter-spacing: -4px;
+}
+
+.description {
+  max-width: 450px;
+  margin-top: 30px;
+  color: #aaa;
+  font-size: 16px;
+  line-height: 1.9;
+}
+
+.button {
+  display: inline-block;
+  margin-top: 35px;
+  padding: 17px 25px;
+  background: #ff6500;
+  color: white;
+  text-decoration: none;
+  font-size: 12px;
+  font-weight: bold;
+  letter-spacing: 2px;
+}
+
+.button:hover {
+  background: white;
+  color: black;
+}
+
+.page-image {
+  width: 45%;
+  height: 480px;
+  object-fit: cover;
+  border-radius: 5px;
+}
+
+@media (max-width: 768px) {
+  .navbar {
+    padding: 0 5%;
+  }
+
+  .nav-links {
+    gap: 12px;
+  }
+
+  .nav-links a {
+    font-size: 9px;
+    letter-spacing: 0;
+  }
+
+  .page {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 60px 6%;
+  }
+
+  .page-image {
+    width: 100%;
+    height: 300px;
+  }
+
+  h1 {
+    letter-spacing: -2px;
+  }
+}
