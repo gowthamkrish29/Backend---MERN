@@ -3,8 +3,6 @@ import { useNavigate, } from "react-router-dom";
 const Products = () => {
 
 
-
-
   const pro = [
     { ProductName: "Iphone", price: 250000 },
     { ProductName: "PS5", price: 80000 },
@@ -17,7 +15,7 @@ const Products = () => {
 
   const buyNow = (productid) => {
 
-    navigate(`/productlist/${productid}`,)
+    navigate(`/productlist/${productid}`)
 
   }
 
