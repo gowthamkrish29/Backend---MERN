@@ -14,17 +14,17 @@ const Home = () => {
 
     const navigate = useNavigate()
 
-    const buyNow = ()=>{
-        navigate(`/products/${pro}`)
+    const buyNow = (id)=>{
+        navigate(`/products/${id}`)
     }
 
     return (
 
         <>
 
-        <div className="bg-red-700 flex justify-evenly items-center h-screen">
+        <div className="bg-green-400 flex justify-evenly items-center h-screen">
 
-            {products.map((e, i )=>{
+            {products.map((e, i )=>(
                 <div key={i} className="bg-white rounded-2xl p-10 flex flex-col items-center">
 
 
@@ -32,7 +32,7 @@ const Home = () => {
                 <h2>Price : {e.price}</h2>
                 <button onClick={()=>buyNow(i)} className="bg-blue-500 p-3 rounded-2xl font-bold my-4">Buy Now</button>
                 </div>
-            })}
+            ))}
 
 
         </div>

@@ -23,7 +23,7 @@ const NewPage = () => {
     const { pro } = useParams();
 
 
-    let singleProduct = products.find((e,i)=>i==pro)
+    let singleProduct = products.find((e,i)=>i==id)
 
 
     return (

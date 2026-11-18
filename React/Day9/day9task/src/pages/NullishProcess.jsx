@@ -10,6 +10,18 @@ const NullishProcess = () => {
     }
 
     const [count , setCount] = useState(10);
+    const [result , setResult] = useState("")
+
+
+    const handleNumber = ()=>{
+
+        if(count%2===0){
+            setResult  ("Even")
+        } else{
+            setResult  ("Odd")
+        }
+
+    }
 
 
 
@@ -39,6 +51,8 @@ const NullishProcess = () => {
                     <button onClick={()=>setCount(count - 2)} className='bg-red-500 p-3 rounded-2xl text-center'>Decrement</button>
                     <button onClick={()=>setCount(count * 3)} className='bg-amber-500 p-3 rounded-2xl text-center'>Multiply</button>
                     <button onClick={()=>setCount(10)} className='bg-gray-700 p-3 text-white rounded-2xl text-center'>Reset</button>
+
+                    <button onClick={handleNumber} className={` p-3 text-white rounded-2xl text-center ${result ?"bg-green-600 text-black"  : "bg-red-500 text-black" }`}>Result : {result}</button>
                 </div>
                     
                 

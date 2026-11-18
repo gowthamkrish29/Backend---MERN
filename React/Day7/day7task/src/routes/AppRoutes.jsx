@@ -13,8 +13,8 @@ import Home from "../pages/home"
 
 
                 
-                <Route path="/" element={<Home/>}></Route>
-                <Route path="/newpage/:pro" element={<NewPage/>}></Route>
+                <Route path="/" element={<Home/>} />
+                <Route path="/newpage/:pro" element={<NewPage/>} />
 
             </Routes>
 

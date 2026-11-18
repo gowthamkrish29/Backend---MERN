@@ -4,9 +4,11 @@ import AppRoutes from "./routes/AppRoutes"
 const App = () => {
   return (
     <>
-    <div className="bg-amber-400">earfearf</div>
+    
 
       <AppRoutes/>
+
+      <div className="bg-amber-400 h-30">earfeaergergrf</div>
 
     </>
   )
