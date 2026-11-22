@@ -1,13 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="MERN-Stack-Development-Company.webp" type="image/x-icon">
-    <title>MERN · Index · JS & React (dark, separate)</title>
+    <title>MERN · Index · Soft Circuit (Light)</title>
     <style>
         /* ----------------------------------------------
-           DARK RESET & BASE
+           SOFT CIRCUIT — UNIQUE LIGHT THEME
         ---------------------------------------------- */
         * {
             margin: 0;
@@ -16,373 +17,592 @@
         }
 
         body {
-            background: #0a121c;
-            background-image: radial-gradient(circle at 10% 30%, #142433 0%, #0a121c 90%);
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            background: #f7f9fc;
+            background-image:
+                linear-gradient(rgba(120, 140, 200, 0.06) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(120, 140, 200, 0.06) 1px, transparent 1px),
+                radial-gradient(circle at 20% 10%, #ffffff 0%, #eef2f9 60%, #e6ecf5 100%);
+            background-size: 40px 40px, 40px 40px, 100% 100%;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
             min-height: 100vh;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: flex-start;
-            padding: 2rem 1.5rem 3rem;
+            padding: 2.5rem 1.5rem 4rem;
             line-height: 1.5;
-            color: #dfe9f3;
+            color: #2b3445;
         }
 
-        /* wrapper for the two separate cards */
+        /* subtle animated accent line */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #5b8def, #9b6dff, #ff7a9e, #5b8def, transparent);
+            animation: scanline 9s linear infinite;
+            opacity: 0.5;
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        @keyframes scanline {
+            0% { top: 0; }
+            100% { top: 100%; }
+        }
+
+        /* wrapper */
         .page-wrap {
             display: flex;
             flex-direction: column;
-            gap: 2.5rem;
+            gap: 3rem;
             width: 100%;
-            max-width: 1000px;
+            max-width: 1060px;
             align-items: center;
+            position: relative;
+            z-index: 2;
         }
 
-        /* each dashboard card - dark glass */
-        .index-card {
+        /* ===== PANEL BASE — light glass ===== */
+        .panel {
             width: 100%;
-            background: rgba(16, 24, 36, 0.85);
-            backdrop-filter: blur(14px);
-            -webkit-backdrop-filter: blur(14px);
-            border-radius: 2.5rem;
-            padding: 2.5rem 2rem;
-            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.9),
-                        0 0 0 1px rgba(80, 140, 210, 0.2),
-                        inset 0 1px 0 rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(70, 130, 200, 0.15);
-            transition: box-shadow 0.3s ease;
+            border-radius: 2rem;
+            padding: 2.75rem 2.25rem;
+            position: relative;
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(120, 140, 200, 0.18);
+            box-shadow:
+                0 0 0 1px rgba(255, 255, 255, 0.6),
+                0 20px 40px -18px rgba(60, 80, 140, 0.18),
+                0 8px 20px -8px rgba(60, 80, 140, 0.08),
+                inset 0 1px 0 rgba(255, 255, 255, 0.9);
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
         }
 
-        /* header section */
+        /* corner brackets — soft tech feel */
+        .panel::before,
+        .panel::after {
+            content: '';
+            position: absolute;
+            width: 26px;
+            height: 26px;
+            border-color: #5b8def;
+            border-style: solid;
+            opacity: 0.55;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+        }
+
+        .panel::before {
+            top: 14px;
+            left: 14px;
+            border-width: 2px 0 0 2px;
+            border-radius: 8px 0 0 0;
+        }
+
+        .panel::after {
+            bottom: 14px;
+            right: 14px;
+            border-width: 0 2px 2px 0;
+            border-radius: 0 0 8px 0;
+        }
+
+        .panel:hover {
+            border-color: rgba(91, 141, 239, 0.35);
+            box-shadow:
+                0 0 0 1px rgba(255, 255, 255, 0.7),
+                0 26px 50px -18px rgba(60, 80, 140, 0.22),
+                0 0 30px -6px rgba(91, 141, 239, 0.12),
+                inset 0 1px 0 rgba(255, 255, 255, 0.95);
+        }
+
+        .panel:hover::before,
+        .panel:hover::after {
+            opacity: 0.9;
+        }
+
+        /* JS panel accent */
+        .js-panel {
+            border-color: rgba(155, 109, 255, 0.22);
+        }
+
+        .js-panel::before,
+        .js-panel::after {
+            border-color: #9b6dff;
+        }
+
+        .js-panel:hover {
+            border-color: rgba(155, 109, 255, 0.45);
+            box-shadow:
+                0 0 0 1px rgba(255, 255, 255, 0.7),
+                0 26px 50px -18px rgba(80, 60, 140, 0.2),
+                0 0 30px -6px rgba(155, 109, 255, 0.15),
+                inset 0 1px 0 rgba(255, 255, 255, 0.95);
+        }
+
+        /* header */
         .header {
             text-align: center;
-            margin-bottom: 2.25rem;
+            margin-bottom: 2.5rem;
+            position: relative;
         }
 
         .badge {
-            display: inline-block;
-            background: #1c3d5e;
-            color: #cde4ff;
-            font-size: 0.75rem;
-            font-weight: 600;
-            letter-spacing: 1.5px;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(91, 141, 239, 0.08);
+            color: #3d6bd6;
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 3px;
             text-transform: uppercase;
-            padding: 0.35rem 1.2rem;
-            border-radius: 40px;
-            margin-bottom: 1rem;
-            box-shadow: 0 4px 15px rgba(0, 80, 160, 0.4);
-            border: 1px solid rgba(100, 170, 240, 0.3);
+            padding: 0.4rem 1.3rem;
+            border-radius: 6px;
+            margin-bottom: 1.25rem;
+            border: 1px solid rgba(91, 141, 239, 0.22);
+            box-shadow: 0 2px 10px rgba(91, 141, 239, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.7);
+        }
+
+        .js-panel .badge {
+            background: rgba(155, 109, 255, 0.08);
+            color: #7a4fd6;
+            border-color: rgba(155, 109, 255, 0.28);
+            box-shadow: 0 2px 10px rgba(155, 109, 255, 0.12), inset 0 1px 0 rgba(255, 255, 255, 0.7);
+        }
+
+        .badge::before {
+            content: '';
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: #5b8def;
+            box-shadow: 0 0 8px #5b8def;
+            animation: pulse 2.4s ease-in-out infinite;
+        }
+
+        .js-panel .badge::before {
+            background: #9b6dff;
+            box-shadow: 0 0 8px #9b6dff;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.45; transform: scale(0.8); }
         }
 
         h1 {
-            font-size: clamp(1.6rem, 5.5vw, 2.4rem);
-            font-weight: 700;
-            line-height: 1.2;
-            color: #ecf3fa;
-            letter-spacing: -0.02em;
+            font-size: clamp(1.7rem, 5.5vw, 2.6rem);
+            font-weight: 800;
+            line-height: 1.15;
+            color: #1e293b;
+            letter-spacing: -0.03em;
+            text-transform: uppercase;
         }
 
         h1 span {
-            background: linear-gradient(135deg, #9ac7ff, #5a9eff);
+            background: linear-gradient(120deg, #5b8def 0%, #9b6dff 50%, #ff7a9e 100%);
             -webkit-background-clip: text;
             background-clip: text;
             -webkit-text-fill-color: transparent;
             display: inline-block;
-            text-shadow: 0 0 20px rgba(80, 150, 255, 0.3);
+            filter: drop-shadow(0 2px 8px rgba(91, 141, 239, 0.25));
+        }
+
+        .js-panel h1 span {
+            background: linear-gradient(120deg, #9b6dff 0%, #c08cff 50%, #5b8def 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            filter: drop-shadow(0 2px 8px rgba(155, 109, 255, 0.25));
         }
 
         .subhead {
-            font-size: 1rem;
-            color: #95afc7;
-            margin-top: 0.5rem;
-            font-weight: 400;
-            border-bottom: 2px dashed rgba(100, 170, 240, 0.3);
-            padding-bottom: 1.25rem;
-            max-width: 500px;
+            font-size: 0.9rem;
+            color: #7b8aa8;
+            margin-top: 0.75rem;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            padding-bottom: 1.5rem;
+            max-width: 520px;
             margin-left: auto;
             margin-right: auto;
+            border-bottom: 1px solid rgba(91, 141, 239, 0.12);
         }
 
-        /* grid for day cards — compact */
+        .js-panel .subhead {
+            border-bottom-color: rgba(155, 109, 255, 0.15);
+            color: #8a7ba8;
+        }
+
+        /* ===== DAY CARD — soft glowing chip ===== */
         .days-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-            gap: 1.25rem;
-            margin: 0.5rem 0 0;
+            gap: 1.15rem;
+            margin: 0.75rem 0 0;
         }
 
-        /* each day card – dark, compact */
         .day-card {
-            background: #121e2b;
-            border-radius: 1.5rem;
-            padding: 1.25rem 1rem 1rem;
-            box-shadow: 0 8px 18px rgba(0, 0, 0, 0.7), inset 0 1px 0 rgba(255, 255, 255, 0.05);
-            border: 1px solid #1f3449;
-            transition: all 0.2s ease;
+            background: linear-gradient(145deg, #ffffff 0%, #f8faff 100%);
+            border-radius: 1rem;
+            padding: 1.2rem 1rem 1rem;
+            border: 1px solid #e2e8f5;
+            transition: all 0.22s cubic-bezier(0.4, 0, 0.2, 1);
             display: flex;
             flex-direction: column;
             position: relative;
             overflow: hidden;
+            box-shadow: 0 2px 8px rgba(80, 100, 160, 0.04), inset 0 1px 0 #ffffff;
         }
 
-        /* subtle accent line at bottom */
-        .day-card::after {
+        /* soft left bar */
+        .day-card::before {
             content: '';
             position: absolute;
-            bottom: 0;
+            top: 12px;
             left: 0;
-            width: 100%;
-            height: 3px;
-            background: linear-gradient(90deg, #2a6ea5, #4a9eff);
-            opacity: 0.5;
-            transition: opacity 0.2s, height 0.2s;
+            width: 3px;
+            height: calc(100% - 24px);
+            background: linear-gradient(180deg, #5b8def, #9b6dff);
+            border-radius: 0 3px 3px 0;
+            opacity: 0.45;
+            transition: opacity 0.25s ease, box-shadow 0.25s ease;
+        }
+
+        .js-panel .day-card::before {
+            background: linear-gradient(180deg, #9b6dff, #c08cff);
         }
 
         .day-card:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 18px 28px -8px #000000, 0 0 0 1px #2f5a8a;
-            border-color: #2f5a8a;
-            background: #162535;
+            transform: translateY(-4px);
+            border-color: rgba(91, 141, 239, 0.4);
+            background: linear-gradient(145deg, #ffffff 0%, #f4f7ff 100%);
+            box-shadow:
+                0 16px 28px -12px rgba(60, 80, 150, 0.18),
+                0 0 20px -6px rgba(91, 141, 239, 0.18),
+                inset 0 1px 0 #ffffff;
         }
 
-        .day-card:hover::after {
+        .js-panel .day-card:hover {
+            border-color: rgba(155, 109, 255, 0.45);
+            box-shadow:
+                0 16px 28px -12px rgba(90, 60, 150, 0.18),
+                0 0 20px -6px rgba(155, 109, 255, 0.18),
+                inset 0 1px 0 #ffffff;
+        }
+
+        .day-card:hover::before {
             opacity: 1;
-            height: 5px;
+            box-shadow: 0 0 10px currentColor;
         }
 
-        /* day title row */
+        /* day title */
         .day-title-row {
             display: flex;
             align-items: center;
             justify-content: space-between;
             margin-bottom: 0.85rem;
-            padding-bottom: 0.5rem;
-            border-bottom: 1px dashed rgba(80, 140, 200, 0.3);
+            padding-bottom: 0.6rem;
+            border-bottom: 1px dashed rgba(91, 141, 239, 0.15);
+        }
+
+        .js-panel .day-title-row {
+            border-bottom-color: rgba(155, 109, 255, 0.18);
         }
 
         .day-title {
             font-weight: 700;
-            font-size: 1.15rem;
-            color: #c6ddf5;
-            letter-spacing: -0.01em;
+            font-size: 1rem;
+            color: #273449;
+            letter-spacing: 0.3px;
             display: flex;
             align-items: center;
-            gap: 0.4rem;
+            gap: 0.45rem;
+            text-transform: uppercase;
         }
 
         .day-title .day-emoji {
-            font-size: 1.1rem;
-            filter: drop-shadow(0 0 6px rgba(90, 158, 255, 0.5));
+            font-size: 1.05rem;
+            filter: drop-shadow(0 2px 4px rgba(91, 141, 239, 0.3));
+        }
+
+        .js-panel .day-title .day-emoji {
+            filter: drop-shadow(0 2px 4px rgba(155, 109, 255, 0.35));
         }
 
         .task-count {
-            background: #1b2c3f;
+            background: rgba(91, 141, 239, 0.08);
             padding: 0.15rem 0.7rem;
-            border-radius: 30px;
-            font-size: 0.65rem;
-            font-weight: 600;
-            color: #8ab8e6;
-            border: 1px solid #2b4868;
+            border-radius: 6px;
+            font-size: 0.6rem;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            color: #3d6bd6;
+            border: 1px solid rgba(91, 141, 239, 0.18);
             white-space: nowrap;
+            text-transform: uppercase;
         }
 
-        /* file chips container */
+        .js-panel .task-count {
+            background: rgba(155, 109, 255, 0.08);
+            color: #7a4fd6;
+            border-color: rgba(155, 109, 255, 0.22);
+        }
+
+        /* file links */
         .file-links {
             display: flex;
             flex-wrap: wrap;
-            gap: 0.55rem;
-            margin-top: 0.25rem;
+            gap: 0.5rem;
+            margin-top: 0.2rem;
         }
 
-        /* each file link chip — smaller, dark */
         .file-link {
-            background: #0f1b26;
-            border: 1px solid #2a4058;
-            border-radius: 2rem;
-            padding: 0.3rem 0.9rem;
+            background: rgba(91, 141, 239, 0.05);
+            border: 1px solid rgba(91, 141, 239, 0.2);
+            border-radius: 6px;
+            padding: 0.35rem 0.85rem;
             font-size: 0.7rem;
-            font-weight: 500;
-            color: #b6d0ea;
+            font-weight: 600;
+            color: #3a63c4;
             text-decoration: none;
             display: inline-flex;
             align-items: center;
-            gap: 0.3rem;
-            transition: all 0.15s ease;
+            gap: 0.35rem;
+            transition: all 0.18s ease;
             white-space: nowrap;
-            letter-spacing: 0.2px;
+            letter-spacing: 0.3px;
         }
 
         .file-link::before {
-            content: '📄';
-            font-size: 0.7rem;
-            opacity: 0.7;
-            filter: brightness(1.2);
+            content: '▹';
+            font-size: 0.65rem;
+            color: #5b8def;
+            opacity: 0.85;
+        }
+
+        .js-panel .file-link {
+            background: rgba(155, 109, 255, 0.05);
+            border-color: rgba(155, 109, 255, 0.22);
+            color: #6a45c4;
+        }
+
+        .js-panel .file-link::before {
+            color: #9b6dff;
         }
 
         .file-link:hover {
-            background: #1e3247;
-            border-color: #4a8ad0;
-            color: #e3f0ff;
-            box-shadow: 0 6px 12px rgba(0, 80, 160, 0.4);
-            transform: translateY(-1px);
+            background: rgba(91, 141, 239, 0.14);
+            border-color: #5b8def;
+            color: #1e3a8a;
+            box-shadow: 0 4px 12px -2px rgba(91, 141, 239, 0.35);
+            transform: translateX(3px);
         }
 
-        .file-link:active {
-            transform: translateY(1px);
-            box-shadow: none;
+        .js-panel .file-link:hover {
+            background: rgba(155, 109, 255, 0.14);
+            border-color: #9b6dff;
+            box-shadow: 0 4px 12px -2px rgba(155, 109, 255, 0.35);
         }
 
-        /* ================= REACT CARD (separate, distinct) ================= */
-        .react-card-dashboard {
-            width: 100%;
-            background: rgba(14, 26, 40, 0.92);
-            backdrop-filter: blur(14px);
-            -webkit-backdrop-filter: blur(14px);
-            border-radius: 2.5rem;
-            padding: 2.5rem 2rem;
-            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.9),
-                        0 0 0 1px rgba(97, 218, 251, 0.18),
-                        inset 0 1px 0 rgba(255, 255, 255, 0.04);
-            border: 1px solid rgba(97, 218, 251, 0.18);
-            transition: box-shadow 0.3s ease;
+        /* ===== REACT PANEL — warm pink identity ===== */
+        .react-panel {
+            border-color: rgba(255, 122, 158, 0.25);
+            background: rgba(255, 252, 253, 0.9);
         }
 
-        /* react header accent */
-        .react-card-dashboard .badge {
-            background: #103a4a;
-            color: #b3f0ff;
-            border-color: rgba(97, 218, 251, 0.35);
-            box-shadow: 0 4px 15px rgba(0, 120, 150, 0.4);
+        .react-panel::before,
+        .react-panel::after {
+            border-color: #ff7a9e;
         }
 
-        .react-card-dashboard h1 span {
-            background: linear-gradient(135deg, #61dafb, #2a9fd6);
+        .react-panel:hover {
+            border-color: rgba(255, 122, 158, 0.5);
+            box-shadow:
+                0 0 0 1px rgba(255, 255, 255, 0.7),
+                0 26px 50px -18px rgba(150, 70, 100, 0.18),
+                0 0 30px -6px rgba(255, 122, 158, 0.15),
+                inset 0 1px 0 rgba(255, 255, 255, 0.95);
+        }
+
+        .react-panel .badge {
+            background: rgba(255, 122, 158, 0.08);
+            color: #d64a75;
+            border-color: rgba(255, 122, 158, 0.28);
+            box-shadow: 0 2px 10px rgba(255, 122, 158, 0.12), inset 0 1px 0 rgba(255, 255, 255, 0.7);
+        }
+
+        .react-panel .badge::before {
+            background: #ff7a9e;
+            box-shadow: 0 0 8px #ff7a9e;
+        }
+
+        .react-panel h1 span {
+            background: linear-gradient(120deg, #ff7a9e 0%, #ff9a5f 50%, #5b8def 100%);
             -webkit-background-clip: text;
             background-clip: text;
             -webkit-text-fill-color: transparent;
-            text-shadow: 0 0 20px rgba(97, 218, 251, 0.25);
+            filter: drop-shadow(0 2px 8px rgba(255, 122, 158, 0.25));
         }
 
-        .react-card-dashboard .subhead {
-            border-bottom-color: rgba(97, 218, 251, 0.25);
-            color: #8fb8cc;
+        .react-panel .subhead {
+            border-bottom-color: rgba(255, 122, 158, 0.15);
+            color: #a87a8a;
         }
 
-        .react-card-dashboard .day-card {
-            background: #0f202c;
-            border-color: #1d3d4f;
+        .react-panel .day-card {
+            background: linear-gradient(145deg, #ffffff 0%, #fff8fa 100%);
+            border-color: #f5e2e8;
         }
 
-        .react-card-dashboard .day-card::after {
-            background: linear-gradient(90deg, #61dafb, #2a6ea5);
+        .react-panel .day-card::before {
+            background: linear-gradient(180deg, #ff7a9e, #ff9a5f);
         }
 
-        .react-card-dashboard .day-card:hover {
-            border-color: #2f7a94;
-            background: #132b3a;
-            box-shadow: 0 18px 28px -8px #000000, 0 0 0 1px #2f7a94;
+        .react-panel .day-card:hover {
+            border-color: rgba(255, 122, 158, 0.45);
+            background: linear-gradient(145deg, #ffffff 0%, #fff4f7 100%);
+            box-shadow:
+                0 16px 28px -12px rgba(150, 70, 100, 0.18),
+                0 0 20px -6px rgba(255, 122, 158, 0.18),
+                inset 0 1px 0 #ffffff;
         }
 
-        .react-card-dashboard .day-title {
-            color: #b3e0ff;
+        .react-panel .day-title-row {
+            border-bottom-color: rgba(255, 122, 158, 0.18);
         }
 
-        .react-card-dashboard .task-count {
-            background: #12303e;
-            color: #9ad4ff;
-            border-color: #2a566a;
+        .react-panel .day-title .day-emoji {
+            filter: drop-shadow(0 2px 4px rgba(255, 122, 158, 0.35));
         }
 
-        .react-card-dashboard .file-link {
-            background: #0a1c26;
-            border-color: #234a5c;
-            color: #a8d8ea;
+        .react-panel .task-count {
+            background: rgba(255, 122, 158, 0.08);
+            color: #d64a75;
+            border-color: rgba(255, 122, 158, 0.2);
         }
 
-        .react-card-dashboard .file-link:hover {
-            background: #143442;
-            border-color: #4aa0c0;
-            color: #e3f7ff;
-            box-shadow: 0 6px 12px rgba(0, 120, 150, 0.4);
+        .react-panel .file-link {
+            background: rgba(255, 122, 158, 0.05);
+            border-color: rgba(255, 122, 158, 0.22);
+            color: #c44a70;
+        }
+
+        .react-panel .file-link::before {
+            color: #ff9a5f;
+        }
+
+        .react-panel .file-link:hover {
+            background: rgba(255, 122, 158, 0.14);
+            border-color: #ff7a9e;
+            color: #8a2a4a;
+            box-shadow: 0 4px 12px -2px rgba(255, 122, 158, 0.35);
         }
 
         /* footer / meta */
         .meta-footer {
-            margin-top: 2rem;
+            margin-top: 2.25rem;
             display: flex;
             justify-content: space-between;
             align-items: center;
             flex-wrap: wrap;
             gap: 0.75rem;
-            border-top: 1px solid rgba(80, 140, 200, 0.2);
+            border-top: 1px solid rgba(91, 141, 239, 0.12);
             padding-top: 1.5rem;
-            font-size: 0.85rem;
-            color: #7f9cba;
+            font-size: 0.8rem;
+            color: #8a99b5;
+            letter-spacing: 0.5px;
         }
 
-        .react-card-dashboard .meta-footer {
-            border-top-color: rgba(97, 218, 251, 0.18);
-            color: #7f9cba;
+        .js-panel .meta-footer {
+            border-top-color: rgba(155, 109, 255, 0.12);
+        }
+
+        .react-panel .meta-footer {
+            border-top-color: rgba(255, 122, 158, 0.12);
         }
 
         .badge-small {
-            background: #1a2e44;
-            padding: 0.25rem 0.9rem;
-            border-radius: 30px;
-            font-weight: 500;
-            color: #b0d0f0;
-            font-size: 0.75rem;
-            border: 1px solid #2c4560;
+            background: rgba(91, 141, 239, 0.06);
+            padding: 0.3rem 0.9rem;
+            border-radius: 6px;
+            font-weight: 600;
+            color: #3d6bd6;
+            font-size: 0.68rem;
+            border: 1px solid rgba(91, 141, 239, 0.18);
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
-        .react-card-dashboard .badge-small {
-            background: #12303e;
-            color: #a8e0f5;
-            border-color: #2a566a;
+        .js-panel .badge-small {
+            background: rgba(155, 109, 255, 0.07);
+            color: #7a4fd6;
+            border-color: rgba(155, 109, 255, 0.2);
+        }
+
+        .react-panel .badge-small {
+            background: rgba(255, 122, 158, 0.07);
+            color: #d64a75;
+            border-color: rgba(255, 122, 158, 0.2);
         }
 
         .note {
             display: flex;
             align-items: center;
-            gap: 0.35rem;
-            font-weight: 400;
+            gap: 0.4rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            font-size: 0.65rem;
+            letter-spacing: 1px;
         }
 
         .note::before {
-            content: '📁';
-            font-size: 1rem;
-            filter: brightness(1.2);
+            content: '▸';
+            font-size: 0.8rem;
+            color: #5b8def;
+        }
+
+        .js-panel .note::before {
+            color: #9b6dff;
+        }
+
+        .react-panel .note::before {
+            color: #ff7a9e;
         }
 
         /* ----------------------------------------------
            RESPONSIVE
         ---------------------------------------------- */
         @media (max-width: 700px) {
-            body { padding: 1.25rem 1rem 2.5rem; }
-            .page-wrap { gap: 1.75rem; }
-            .index-card,
-            .react-card-dashboard { padding: 1.75rem 1.25rem; border-radius: 2rem; }
-            .days-grid { grid-template-columns: 1fr 1fr; gap: 1rem; }
-            .day-card { padding: 1rem 0.9rem 0.9rem; border-radius: 1.25rem; }
-            .day-title { font-size: 1rem; }
-            .file-link { font-size: 0.65rem; padding: 0.25rem 0.75rem; }
+            body { padding: 1.5rem 1rem 3rem; }
+            .page-wrap { gap: 2rem; }
+            .panel { padding: 2rem 1.35rem; border-radius: 1.5rem; }
+            .days-grid { grid-template-columns: 1fr 1fr; gap: 0.9rem; }
+            .day-card { padding: 1rem 0.85rem 0.85rem; border-radius: 0.9rem; }
+            .day-title { font-size: 0.9rem; }
+            .file-link { font-size: 0.65rem; padding: 0.3rem 0.7rem; }
+            .panel::before, .panel::after { width: 20px; height: 20px; }
         }
 
         @media (max-width: 520px) {
-            body { padding: 1rem 0.75rem 2rem; }
-            .page-wrap { gap: 1.5rem; }
-            .index-card,
-            .react-card-dashboard { padding: 1.5rem 1rem; border-radius: 1.75rem; }
+            body { padding: 1.25rem 0.75rem 2.5rem; }
+            .page-wrap { gap: 1.75rem; }
+            .panel { padding: 1.75rem 1.1rem; border-radius: 1.35rem; }
             .header { margin-bottom: 1.75rem; }
-            .badge { font-size: 0.65rem; padding: 0.25rem 0.75rem; }
-            h1 { font-size: 1.6rem; }
-            .subhead { font-size: 0.9rem; padding-bottom: 1rem; }
-            .days-grid { grid-template-columns: 1fr; gap: 0.9rem; margin: 0.5rem 0 0; }
-            .day-card { padding: 1rem 0.9rem 0.9rem; border-radius: 1.25rem; }
-            .day-title { font-size: 1rem; }
-            .file-link { font-size: 0.65rem; padding: 0.25rem 0.7rem; }
-            .meta-footer { flex-direction: column; align-items: flex-start; gap: 0.6rem; margin-top: 1.5rem; padding-top: 1rem; font-size: 0.75rem; }
+            .badge { font-size: 0.6rem; padding: 0.3rem 1rem; letter-spacing: 2px; }
+            h1 { font-size: 1.5rem; }
+            .subhead { font-size: 0.8rem; padding-bottom: 1.1rem; }
+            .days-grid { grid-template-columns: 1fr; gap: 0.85rem; }
+            .day-card { padding: 1rem 0.85rem 0.85rem; border-radius: 0.9rem; }
+            .day-title { font-size: 0.9rem; }
+            .file-link { font-size: 0.65rem; padding: 0.3rem 0.7rem; }
+            .meta-footer { flex-direction: column; align-items: flex-start; gap: 0.7rem; margin-top: 1.75rem; padding-top: 1.25rem; font-size: 0.72rem; }
         }
 
         @media (max-width: 350px) {
@@ -391,26 +611,26 @@
         }
 
         @media (min-width: 1200px) {
-            .index-card,
-            .react-card-dashboard { padding: 3rem 2.5rem; }
-            .days-grid { gap: 1.5rem; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); }
-            .day-card { padding: 1.5rem 1.2rem 1.2rem; }
-            .file-link { font-size: 0.75rem; padding: 0.35rem 1rem; }
+            .panel { padding: 3.25rem 2.75rem; }
+            .days-grid { gap: 1.4rem; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); }
+            .day-card { padding: 1.4rem 1.15rem 1.15rem; }
+            .file-link { font-size: 0.75rem; padding: 0.4rem 1rem; }
         }
 
         @media (prefers-reduced-motion: reduce) {
-            .day-card, .file-link { transition: none; }
+            .day-card, .file-link, body::before { transition: none; animation: none; }
             .day-card:hover, .file-link:hover { transform: none; }
         }
     </style>
 </head>
+
 <body>
     <div class="page-wrap">
 
         <!-- ============================================================
-             CARD 1 : JAVASCRIPT  (Core JS & Advanced JS)
+             PANEL 1 : JAVASCRIPT  (Core JS & Advanced JS)
         ============================================================= -->
-        <div class="index-card js-card-dashboard">
+        <div class="panel js-panel">
             <!-- header -->
             <div class="header">
                 <div class="badge">MERN · backend</div>
@@ -482,42 +702,42 @@
 
             <!-- meta footer -->
             <div class="meta-footer">
-                <span class="badge-small">JavaScript · dark mode</span>
+                <span class="badge-small">JavaScript · light mode</span>
                 <span class="note">Core JS · Advanced JS · practice files</span>
             </div>
         </div>
         <!-- ============================================================
-             END CARD 1
+             END PANEL 1
         ============================================================= -->
 
 
         <!-- ============================================================
-             CARD 2 : REACT  (completely separate dashboard below JS)
+             PANEL 2 : REACT  (completely separate dashboard below JS)
         ============================================================= -->
-        <div class="react-card-dashboard">
+        <div class="panel react-panel">
             <!-- header -->
             <div class="header">
                 <div class="badge">MERN · frontend</div>
                 <h1>
-                    <span> React</span>
+                    <span>React</span>
                 </h1>
                 <div class="subhead">Components · styling · React practice files</div>
             </div>
 
             <!-- grid of React cards -->
             <div class="days-grid">
-                <!-- React Basics -->
+                <!-- Day1 -->
                 <div class="day-card">
                     <div class="day-title-row">
                         <div class="day-title"><span class="day-emoji">⚛️</span> Day1</div>
-                        <span class="task-count">2 files</span>
+                        <span class="task-count">1 file</span>
                     </div>
                     <div class="file-links">
                         <a href="React/Day1/JS-MERN.pdf" target="_blank" class="file-link">Task 1</a>
                     </div>
                 </div>
 
-                <!-- React Styling -->
+                <!-- Day2 -->
                 <div class="day-card">
                     <div class="day-title-row">
                         <div class="day-title"><span class="day-emoji">⚛️</span> Day2</div>
@@ -528,7 +748,8 @@
                     </div>
                 </div>
 
-                 <div class="day-card">
+                <!-- Day4 -->
+                <div class="day-card">
                     <div class="day-title-row">
                         <div class="day-title"><span class="day-emoji">⚛️</span> Day4</div>
                         <span class="task-count">1 file</span>
@@ -538,8 +759,8 @@
                     </div>
                 </div>
 
-
-                 <div class="day-card">
+                <!-- Day5 -->
+                <div class="day-card">
                     <div class="day-title-row">
                         <div class="day-title"><span class="day-emoji">⚛️</span> Day5</div>
                         <span class="task-count">1 file</span>
@@ -549,11 +770,11 @@
                     </div>
                 </div>
 
-
-                 <div class="day-card">
+                <!-- Day6 -->
+                <div class="day-card">
                     <div class="day-title-row">
                         <div class="day-title"><span class="day-emoji">⚛️</span> Day6</div>
-                        <span class="task-count">1 file</span>
+                        <span class="task-count">2 files</span>
                     </div>
                     <div class="file-links">
                         <a href="React/Day6/productcard/" target="_blank" class="file-link">Task 1</a>
@@ -561,12 +782,11 @@
                     </div>
                 </div>
 
-
-
+                <!-- Day7 -->
                 <div class="day-card">
                     <div class="day-title-row">
                         <div class="day-title"><span class="day-emoji">⚛️</span> Day7</div>
-                        <span class="task-count">1 file</span>
+                        <span class="task-count">2 files</span>
                     </div>
                     <div class="file-links">
                         <a href="React/Day7/day7task/" target="_blank" class="file-link">Task 1</a>
@@ -574,7 +794,7 @@
                     </div>
                 </div>
 
-
+                <!-- Day8 -->
                 <div class="day-card">
                     <div class="day-title-row">
                         <div class="day-title"><span class="day-emoji">⚛️</span> Day8</div>
@@ -582,11 +802,10 @@
                     </div>
                     <div class="file-links">
                         <a href="React/Day8/day8task/" target="_blank" class="file-link">Task 1</a>
-                       
                     </div>
                 </div>
-                
 
+                <!-- Day9 -->
                 <div class="day-card">
                     <div class="day-title-row">
                         <div class="day-title"><span class="day-emoji">⚛️</span> Day9</div>
@@ -594,36 +813,87 @@
                     </div>
                     <div class="file-links">
                         <a href="React/Day9/day9task/" target="_blank" class="file-link">Task 1</a>
-                       
                     </div>
                 </div>
 
-
-                  <div class="day-card">
+                <!-- Day10 -->
+                <div class="day-card">
                     <div class="day-title-row">
                         <div class="day-title"><span class="day-emoji">⚛️</span> Day10</div>
                         <span class="task-count">1 file</span>
                     </div>
                     <div class="file-links">
                         <a href="React/Day10/day10task/" target="_blank" class="file-link">Task 1</a>
-                       
                     </div>
                 </div>
 
+                <!-- Day11 -->
+                <div class="day-card">
+                    <div class="day-title-row">
+                        <div class="day-title"><span class="day-emoji">⚛️</span> Day11</div>
+                        <span class="task-count">1 file</span>
+                    </div>
+                    <div class="file-links">
+                        <a href="React/Day11/todolist/" target="_blank" class="file-link">Task 1</a>
+                    </div>
+                </div>
 
-                
+                <!-- Day12 -->
+                <div class="day-card">
+                    <div class="day-title-row">
+                        <div class="day-title"><span class="day-emoji">⚛️</span> Day12</div>
+                        <span class="task-count">1 file</span>
+                    </div>
+                    <div class="file-links">
+                        <a href="React/Day12/day12task/" target="_blank" class="file-link">Task 1</a>
+                    </div>
+                </div>
+
+                <!-- Day13 -->
+                <div class="day-card">
+                    <div class="day-title-row">
+                        <div class="day-title"><span class="day-emoji">⚛️</span> Day13</div>
+                        <span class="task-count">1 file</span>
+                    </div>
+                    <div class="file-links">
+                        <a href="React/Day13 localStorage/localstorage/" target="_blank" class="file-link">Task 1</a>
+                    </div>
+                </div>
+
+                <!-- Day14 -->
+                <div class="day-card">
+                    <div class="day-title-row">
+                        <div class="day-title"><span class="day-emoji">⚛️</span> Day14</div>
+                        <span class="task-count">1 file</span>
+                    </div>
+                    <div class="file-links">
+                        <a href="React/Day14 Fetch_API/fetchprocess/" target="_blank" class="file-link">Task 1</a>
+                    </div>
+                </div>
+
+                <!-- Day15 -->
+                <div class="day-card">
+                    <div class="day-title-row">
+                        <div class="day-title"><span class="day-emoji">⚛️</span> Day15</div>
+                        <span class="task-count">1 file</span>
+                    </div>
+                    <div class="file-links">
+                        <a href="React/Day15 Search/" target="_blank" class="file-link">Task 1</a>
+                    </div>
+                </div>
             </div>
 
             <!-- meta footer -->
             <div class="meta-footer">
-                <span class="badge-small">React · dark mode</span>
+                <span class="badge-small">React · light mode</span>
                 <span class="note">React · components · practice files</span>
             </div>
         </div>
         <!-- ============================================================
-             END CARD 2
+             END PANEL 2
         ============================================================= -->
 
     </div>
 </body>
+
 </html>

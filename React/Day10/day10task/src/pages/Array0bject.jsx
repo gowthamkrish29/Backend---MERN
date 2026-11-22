@@ -59,6 +59,11 @@ const ArrayofObject = () => {
     setTot(details.reduce((acc , e)=>acc + e.salary,0))
   }
 
+  const handleLength = ()=>{
+
+    set
+
+  }
 
   return (
     <>
@@ -83,6 +88,8 @@ const ArrayofObject = () => {
         <button onClick={handleFilter} className="bg-olive-700 text-white text-2xl font-bold rounded-3xl border-4 border-black p-3">Filter By Salary</button>
 
         <button onClick={handleSum} className="bg-orange-500 text-2xl font-bold rounded-3xl border-4 border-black p-3">Total Salary : {tot} </button>
+
+       <button  onClick={handleLength} className="bg-purple-600 text-2xl font-bold p-3 rounded-3xl border-4">Number of employees : </button>
       </div>
 
     </>
